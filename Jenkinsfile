@@ -4,6 +4,7 @@ pipeline {
     }
     tools {
         maven "M3"
+        terraform "terraform"
     }
     environment {
         IMAGE = readMavenPom().getArtifactId()

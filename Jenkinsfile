@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Get Code'){
             steps {
-                git branch: 'selenium_grid', url: 'https://github.com/mwocka/panda_application.git'
+                git branch: 'test_selenium', url: 'https://github.com/Patryk803/devops-core.git'
             }
         }
         stage('Build and Junit'){
@@ -52,10 +52,10 @@ pipeline {
             }
         }
     }
-    // post {
-    //     always {
-    //         sh "docker stop ${NAZWA_KONTENERA}"
-    //         deleteDir()
-    //     }
-    // }
+    post {
+        always {
+            sh "docker stop ${NAZWA_KONTENERA}"
+            deleteDir()
+        }
+    }
 }
